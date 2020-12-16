@@ -80,4 +80,7 @@ export const CardCTA = styled.button`
     color: #fff;
     border: none;
     cursor: pointer;
+    &:hover {
+        background: #5b6f57
+    }
 `
