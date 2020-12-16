@@ -22,45 +22,35 @@ export const Image = styled.img`
     transform: translate(-49%,-55%);
 `
 export const Info = styled.div`
-    padding: 30px;
+    padding: 50px;
     display: flex;
     flex-direction: column;
     background-color: #F7F7F7;
     border-radius: 11px;
 `
 export const ContainerFlex = styled.div`
-display: grid;
+    display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 170px;
 `
 export const ContainerFlexTotal = styled.div`
-    width: 270px;
-    margin: 25px 0 20px;
+    margin: 85px 0 0;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
 `
 export const ContainerFlexPayment = styled.div`
     display: flex;
-    flex-direction: column;
+    align-items: center;
 `
 export const ContainerFlexCTA = styled.div`
     display: flex;
     justify-content: flex-end;
 `
-
-
 export const Block = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-`
-export const BigTitle = styled.h1`
-    font-size: 22px;
-    line-height: 30px;
-    color: #000;
-    font-weight: 400;
-    margin-bottom: 20px;
 `
 export const SmallTitle = styled.h1`
     font-size: 20px;
@@ -81,31 +71,6 @@ export const TotalValue = styled.h1`
     color: #000;
     font-weight: 400;
 `
-export const PaymentTag = styled.div`
-    width: 100%;
-    height: 75px;
-    padding: 0 30px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    background-color: #fff;
-    border: 1px solid transparent;
-    cursor: pointer;
-    transition: all 0.1s ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    &:hover, &.active {
-        border: 1px solid #5DAC50;
-    }
-`
-export const PaymentMethod = styled.h3`
-    font-size: 16px;
-    line-height: 21px;
-    color: #535353;
-    font-weight: 400;
-`
-export const PaymentImage = styled.img``
-
 export const ContinueCTA = styled.button`
     width: 50%;
     bottom: 10px;
@@ -123,6 +88,10 @@ export const ContinueCTA = styled.button`
     &:hover {
         background: #5b6f57
     }
+`
+
+export const ImagePayment = styled.img`
+    margin-right: 12px;
 `
 
 
