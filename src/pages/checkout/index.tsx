@@ -78,7 +78,6 @@ const Index = () => {
           <S.ContinueCTA>Continue</S.ContinueCTA>
         </S.ContainerFlexCTA>
       </S.Info>
-      <S.Receipt></S.Receipt>
     </S.Wrapper>
   )
 }
