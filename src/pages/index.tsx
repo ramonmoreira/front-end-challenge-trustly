@@ -1,7 +1,8 @@
-export default function Home({ title = 'Front-end Challenge' }) {
-  return (
-    <>
-      <h1>{title}</h1>
-    </>
-  )
-}
+import Main from 'components/Main'
+
+const Index = () => (
+  <>
+    <Main />
+  </>
+)
+export default Index
