@@ -1,8 +1,9 @@
+import CardProduct from 'components/CardProduct'
 import * as S from './styles'
 
 const Products = ({ title = 'Products' }) => (
   <S.Wrapper>
-    <h1>{title}</h1>
+    <CardProduct></CardProduct>
   </S.Wrapper>
 )
 
