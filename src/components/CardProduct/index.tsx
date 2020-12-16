@@ -1,11 +1,21 @@
+import React from 'react'
 import * as S from './styles'
+import { ResultProps } from 'types/api'
 
-const CardProduct = () => (
+const CardProduct: React.FC<ResultProps> = ({
+  currency,
+  description,
+  id,
+  price,
+  thumbnailURL,
+  color,
+  maxresURL
+}) => (
   <S.Wrapper>
-    <S.Card>
-      <S.Thumbnail src="https://voliveira.s3-sa-east-1.amazonaws.com/sneakers/ss-sneaker-thumb.png" />
+    <S.Card key={id}>
+      <S.Thumbnail src={thumbnailURL} />
       <S.CardInfo>
-        <S.CardTitle>SS Sneaker</S.CardTitle>
+        <S.CardTitle>{description}</S.CardTitle>
         <S.SelectContainerFlex>
           <S.Select>
             <S.SelectTitle>Size</S.SelectTitle>
@@ -20,7 +30,7 @@ const CardProduct = () => (
             </S.SelectField>
           </S.Select>
         </S.SelectContainerFlex>
-        <S.Price>$ 100.00</S.Price>
+        <S.Price>$ {price}</S.Price>
         <S.CardCTA>Add to cart</S.CardCTA>
       </S.CardInfo>
     </S.Card>

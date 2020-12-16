@@ -1,9 +1,18 @@
 import CardProduct from 'components/CardProduct'
+import { ProductsProps } from 'types/api'
 import * as S from './styles'
 
-const Products = ({ title = 'Products' }) => (
+const Products = ({ results }: ProductsProps) => (
   <S.Wrapper>
-    <CardProduct></CardProduct>
+    {results.map(({ currency, description, id, price, thumbnailURL }) => (
+      <CardProduct
+        key={id}
+        description={description}
+        currency={currency}
+        price={price}
+        thumbnailURL={thumbnailURL}
+      />
+    ))}
   </S.Wrapper>
 )
 
