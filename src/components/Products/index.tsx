@@ -7,6 +7,7 @@ const Products = ({ results }: ProductsProps) => (
     {results.map(({ currency, description, id, price, thumbnailURL }) => (
       <CardProduct
         key={id}
+        id={id}
         description={description}
         currency={currency}
         price={price}

@@ -48,8 +48,6 @@ export const ContainerFlexCTA = styled.div`
     display: flex;
     justify-content: flex-end;
 `
-
-
 export const Block = styled.div`
     display: flex;
     flex-direction: column;
@@ -81,7 +79,7 @@ export const TotalValue = styled.h1`
     color: #000;
     font-weight: 400;
 `
-export const PaymentTag = styled.div`
+export const PaymentTag = styled.div<{ save?: string }>`
     width: 100%;
     height: 75px;
     padding: 0 30px;
@@ -94,9 +92,27 @@ export const PaymentTag = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
     &:hover, &.active {
         border: 1px solid #5DAC50;
+            &::before {
+            content: '${(props) => props.save ? props.save : ''}';
+            position: absolute;
+            top: -10px;
+            left: 32px;
+            width: 75px;
+            height: 18px;
+            background-color: #FFCC00;
+            border-radius: 2px;
+            color: #9E7D27;
+            font-weight: 700;
+            font-size: 10px;
+            display: ${(props) => props.save ? 'flex' : 'none'};
+            align-items: center;
+            justify-content: center;
+        }
     }
+    
 `
 export const PaymentMethod = styled.h3`
     font-size: 16px;

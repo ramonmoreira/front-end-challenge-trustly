@@ -67,7 +67,7 @@ export const Price = styled.h2`
     color: #000;
     font-weight: 600;
 `
-export const CardCTA = styled.button`
+export const CardCTA = styled.a`
     width: calc(100% - 20px);
     position: absolute;
     bottom: 10px;
@@ -79,7 +79,10 @@ export const CardCTA = styled.button`
     font-weight: 700;
     color: #fff;
     border: none;
-    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:hover {
         background: #5b6f57
     }

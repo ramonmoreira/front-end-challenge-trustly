@@ -1,5 +1,5 @@
 export type ResultProps = {
-    id?: string
+    id: string
     description: string
     color?: string
     price: string
