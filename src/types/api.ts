@@ -10,7 +10,12 @@ export type ResultProps = {
 export type ProductsProps = {
     results: ResultProps[]
 }
-
+export type BreadCrumbType = {
+    locale: boolean
+}
+export type BreadCrumbProps = {
+    breadCrumb: BreadCrumbType[]
+}
 export type ProductsPageProps = {
     products: ProductsProps
 }
