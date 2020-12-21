@@ -3,9 +3,7 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import * as S from './styles'
 import axios from 'axios'
-import { ProductsPageProps, ProductsProps, ResultProps } from 'types/api'
-const imgObj =
-  'https://voliveira.s3-sa-east-1.amazonaws.com/sneakers/ss-sneaker-maxres.png'
+import { ProductsProps, ResultProps } from 'types/api'
 
 const Index = ({ results }: ProductsProps) => {
   const [paymentMethod, setPaymentMethod] = useState('online')
@@ -14,13 +12,6 @@ const Index = ({ results }: ProductsProps) => {
   const { query } = useRouter()
 
   let result: ResultProps
-
-  // const handleClick = (e) => {
-  //   e.preventDefault()
-  //   router.push({ pathname: '/checkout', query: { id: id } }, '/checkout', {
-  //     shallow: true
-  //   })
-  // }
 
   const filterResultById = (() => {
     results.filter((filtered) => {
