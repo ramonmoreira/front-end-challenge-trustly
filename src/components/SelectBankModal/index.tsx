@@ -21,18 +21,6 @@ const customStyle = {
   }
 }
 
-const customStyleOverlay = {
-  content: {
-    backgroundColor: '#000'
-  }
-}
-
-type Bank = {
-  bank: string
-  url: string
-  image: string
-}
-
 const SelectBankModal = () => {
   const [modalIsOpen, setIsOpen] = useState(true)
 
