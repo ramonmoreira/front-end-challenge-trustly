@@ -54,7 +54,7 @@ export const SelectField = styled.select`
     padding: 0 10px;
     border: 1px solid #E8E8E8;
     appearance:none;
-    background: url(img/svg/arrow-select.svg) no-repeat 46px center;
+    background: url(img/svg/arrow.svg) no-repeat 46px center;
     &:focus {
         outline: none;
     }

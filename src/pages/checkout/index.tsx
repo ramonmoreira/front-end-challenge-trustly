@@ -5,6 +5,7 @@ import * as S from 'styles/checkout.styles'
 import axios from 'axios'
 import { ProductsProps, ResultProps } from 'types/api'
 import BreadCrumb from 'components/BreadCrumb'
+import SelectBankModal from 'components/SelectBankModal'
 
 // BreadCrumb Cart / Checkout / Receipt
 
@@ -113,6 +114,7 @@ const Index = ({ results }: ProductsProps) => {
           <h1>Carregando...</h1>
         )}
       </S.Results>
+      <SelectBankModal />
     </S.Wrapper>
   )
 }
