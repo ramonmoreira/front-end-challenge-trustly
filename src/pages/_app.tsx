@@ -2,6 +2,7 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 
 import GlobalStyles from 'styles/global.styles'
+import HeaderNav from 'components/HeaderNav'
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -20,6 +21,7 @@ function App({ Component, pageProps }: AppProps) {
         />
       </Head>
       <GlobalStyles />
+      <HeaderNav />
       <Component {...pageProps} />
     </>
   )
