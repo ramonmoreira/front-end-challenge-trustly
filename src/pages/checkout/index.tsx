@@ -5,14 +5,15 @@ import * as S from 'styles/checkout.styles'
 import axios from 'axios'
 import { ProductsProps, ResultProps } from 'types/api'
 import BreadCrumb from 'components/BreadCrumb'
-import SelectBankModal from 'components/SelectBankModal'
+// import SelectBankModal from 'components/SelectBankModal'
+// import Modal from 'react-modal'
 
 // BreadCrumb Cart / Checkout / Receipt
 
 const Index = ({ results }: ProductsProps) => {
   const [paymentMethod, setPaymentMethod] = useState('online')
-  const router = useRouter()
   const { query } = useRouter()
+  const router = useRouter()
   const breadCrumbLocale = [true, true, false]
 
   let result: ResultProps
@@ -24,10 +25,44 @@ const Index = ({ results }: ProductsProps) => {
       }
     })
   })()
-
-  function activePaymentMethod(paymentType: string) {
+  const activePaymentMethod = (paymentType: string) => {
     setPaymentMethod(paymentType)
   }
+  const callEstablish = () => {
+    window.PayWithMyBank.establish({
+      accessId: 'D61EC9BAF0BB369B9438',
+      merchantId: '1004314986',
+      metadata: { demo: 'enabled' },
+      currency: 'USD',
+      paymentType: 'Deferred',
+      amount: result.price,
+      description: 'ramon.dmm@gmail.com',
+      merchantReference: 'a71b3fa2-be44-480e-b63a-1ba8ac752d47',
+      returnUrl: '#success',
+      cancelUrl: '#cancel'
+    })
+    callReceipt()
+  }
+
+  const callReceipt = () => {
+    window.PayWithMyBank.addPanelListener(function (command, event) {
+      if (command === 'event' && event.type === 'new_location') {
+        if (event.data.indexOf('#success') === 0) {
+          router.push(
+            { pathname: '/receipt', query: { id: result.id } },
+            '/receipt',
+            {
+              shallow: true
+            }
+          )
+        } else {
+          alert('cancel!')
+        }
+        return false
+      }
+    })
+  }
+
   return (
     <S.Wrapper>
       <BreadCrumb props={breadCrumbLocale} />
@@ -106,7 +141,7 @@ const Index = ({ results }: ProductsProps) => {
                 </S.PaymentTag>
               </S.ContainerFlexPayment>
               <S.ContainerFlexCTA>
-                <S.ContinueCTA>Continue</S.ContinueCTA>
+                <S.ContinueCTA onClick={callEstablish}>Continue</S.ContinueCTA>
               </S.ContainerFlexCTA>
             </S.Info>
           </>
@@ -114,7 +149,6 @@ const Index = ({ results }: ProductsProps) => {
           <h1>Carregando...</h1>
         )}
       </S.Results>
-      <SelectBankModal />
     </S.Wrapper>
   )
 }
