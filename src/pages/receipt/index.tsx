@@ -5,8 +5,6 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import * as S from 'styles/receipt.styles'
 import { ProductsProps, ResultProps } from 'types/api'
-const imgObj =
-  'https://voliveira.s3-sa-east-1.amazonaws.com/sneakers/ss-sneaker-maxres.png'
 
 const Index = ({ results }: ProductsProps) => {
   const [paymentMethod, setPaymentMethod] = useState('online')
