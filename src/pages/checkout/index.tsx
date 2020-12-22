@@ -1,30 +1,38 @@
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import * as S from 'styles/checkout.styles'
 import axios from 'axios'
 import { ProductsProps, ResultProps } from 'types/api'
 import BreadCrumb from 'components/BreadCrumb'
-// import SelectBankModal from 'components/SelectBankModal'
-// import Modal from 'react-modal'
-
-// BreadCrumb Cart / Checkout / Receipt
+import { useCookies } from 'react-cookie'
+import cookie from 'cookie'
 
 const Index = ({ results }: ProductsProps) => {
   const [paymentMethod, setPaymentMethod] = useState('online')
   const { query } = useRouter()
+  const [sneaker, setSneaker] = useCookies(['sneaker'])
   const router = useRouter()
   const breadCrumbLocale = [true, true, false]
-
   let result: ResultProps
 
+  const queryValue = () => {
+    if (query.id == undefined) {
+      query.id = sneaker.sneaker
+    } else {
+      setSneaker('sneaker', query.id)
+    }
+    return query.id
+  }
   const filterResultById = (() => {
+    queryValue()
     results.filter((filtered) => {
       if (filtered.id === query.id) {
         result = filtered
       }
     })
   })()
+
   const activePaymentMethod = (paymentType: string) => {
     setPaymentMethod(paymentType)
   }
@@ -62,7 +70,6 @@ const Index = ({ results }: ProductsProps) => {
       }
     })
   }
-
   return (
     <S.Wrapper>
       <BreadCrumb props={breadCrumbLocale} />
@@ -158,7 +165,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     'https://voliveira.s3-sa-east-1.amazonaws.com/sneakers/index.json'
   )
   const results: ResultProps[] | undefined = await res.data.results
-
   return {
     props: {
       results: results

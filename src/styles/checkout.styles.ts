@@ -5,7 +5,8 @@ export const Wrapper = styled.div`
    flex-direction: column;
 `
 export const Results = styled.div`
-    width: 1300px;
+    max-width: 1300px;
+    width: 100%;
     margin: 85px auto 0;
     display: grid;
     grid-template-columns: 1fr 2fr;
