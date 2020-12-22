@@ -31,39 +31,49 @@ const Index = ({ results }: ProductsProps) => {
     <S.Wrapper>
       <BreadCrumb props={breadCrumbLocale} />
       <S.Results>
-        <S.ImagePlace>
-          <S.Image src={result.maxresURL} />
-        </S.ImagePlace>
-        <S.Info>
-          <S.ContainerFlex>
-            <S.Block>
-              <S.SmallTitle>Order summary</S.SmallTitle>
-              <S.Description black={true}>{result.description}</S.Description>
-              <S.Description black={false}>
-                x1 Green Size 41
-                <br />
-                Item #{result.id}
-              </S.Description>
-            </S.Block>
-            <S.Block>
-              <S.SmallTitle>Payment Method</S.SmallTitle>
-              <S.ContainerFlexPayment>
-                <S.ImagePayment src="img/png/payment-method-receipt.png" />
-                <S.Description black={true}>Online Banking</S.Description>
-              </S.ContainerFlexPayment>
-            </S.Block>
-          </S.ContainerFlex>
-          <S.ContainerFlexTotal>
-            <S.Block>
-              <S.Description black={true}>Total cost</S.Description>
-              <S.Description black={false}>Delivery included</S.Description>
-            </S.Block>
-            <S.Block>
-              <S.TotalValue>$ {result.price.replace('.00', '')} </S.TotalValue>
-            </S.Block>
-            <S.ContinueCTA>Place order</S.ContinueCTA>
-          </S.ContainerFlexTotal>
-        </S.Info>
+        {result ? (
+          <>
+            <S.ImagePlace>
+              <S.Image src={result.maxresURL} />
+            </S.ImagePlace>
+            <S.Info>
+              <S.ContainerFlex>
+                <S.Block>
+                  <S.SmallTitle>Order summary</S.SmallTitle>
+                  <S.Description black={true}>
+                    {result.description}
+                  </S.Description>
+                  <S.Description black={false}>
+                    x1 Green Size 41
+                    <br />
+                    Item #{result.id}
+                  </S.Description>
+                </S.Block>
+                <S.Block>
+                  <S.SmallTitle>Payment Method</S.SmallTitle>
+                  <S.ContainerFlexPayment>
+                    <S.ImagePayment src="img/png/payment-method-receipt.png" />
+                    <S.Description black={true}>Online Banking</S.Description>
+                  </S.ContainerFlexPayment>
+                </S.Block>
+              </S.ContainerFlex>
+              <S.ContainerFlexTotal>
+                <S.Block>
+                  <S.Description black={true}>Total cost</S.Description>
+                  <S.Description black={false}>Delivery included</S.Description>
+                </S.Block>
+                <S.Block>
+                  <S.TotalValue>
+                    $ {result.price.replace('.00', '')}{' '}
+                  </S.TotalValue>
+                </S.Block>
+                <S.ContinueCTA>Place order</S.ContinueCTA>
+              </S.ContainerFlexTotal>
+            </S.Info>
+          </>
+        ) : (
+          <h1>Carregando...</h1>
+        )}
       </S.Results>
     </S.Wrapper>
   )
